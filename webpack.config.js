@@ -5,7 +5,7 @@ const NodeEnvPlugin = require("node-env-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: {
     app: "./src/index.js",
     utility: "./src/utility.js",
