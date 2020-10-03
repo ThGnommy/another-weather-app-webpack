@@ -1,0 +1,48 @@
+body {
+  text-align: center;
+}
+
+#api-container {
+  display: none;
+}
+
+#citynotfound {
+  display: none;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}
+
+#alert-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: none;
+}
+
+.alert-animation {
+  display: flex !important;
+  animation: toast 5s;
+}
+
+@keyframes toast {
+  0% {
+    bottom: 0;
+    opacity: 0;
+  }
+  40% {
+    bottom: 10%;
+    opacity: 1;
+  }
+  60% {
+    bottom: 10%;
+    opacity: 1;
+  }
+  100% {
+    bottom: 0;
+    opacity: 0;
+  }
+}

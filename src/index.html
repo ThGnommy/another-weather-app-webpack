@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/papercss@1.7.0/dist/paper.min.css"
+    />
+    <title>Another Weather App</title>
+  </head>
+
+  <body>
+    <div class="paper top-page">
+      <div class="row">
+        <div class="col-12">
+          <h3>Another Weather App</h3>
+          <p>- Made with <span class="badge danger">love</span> by Thomas Brandoli -</p>
+        </div>
+      </div>
+
+      <div class="row flex-center">
+        <div class="col-6">
+          <div class="form-group">
+            <form>
+              <label>Insert your city!</label>
+              <input
+                class="input-block tex-warning"
+                type="text"
+                placeholder="Example: London, UK"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row flex-center">
+        <button type="button">Search</button>
+      </div>
+
+      <div id="api-container" class="row flex-center">
+        <div class="col-12 col">
+          <h3><span id="city" class="badge secondary"></span></h3>
+        </div>
+      </div>
+
+      <div id="citynotfound" class="row flex-center">
+        <div class="col-4 col">
+          <h2 class="text-danger">City not found!</h2>
+        </div>
+      </div>
+
+      <div
+        id="api-container"
+        class="row flex-center child-borders child-shadows-hover"
+      >
+        <div class="col-6 col"><span id="weather-description"></span></div>
+      </div>
+
+      <div id="api-container" class="row flex-center">
+        <div class="col-8 col">
+          <h1><span id="temp" class="badge success"></span></h1>
+        </div>
+      </div>
+
+      <div
+        id="api-container"
+        class="row flex-spaces child-borders child-shadows-hover"
+      >
+        <div class="col-4 col">Humidity: <span id="humidity"></span></div>
+        <div class="col-4 col">
+          Wind Speed: <span id="wind-speed"></span> km/h
+        </div>
+      </div>
+
+      <div id="api-container" class="row flex-center">
+        <img id="icon-condition" src="" alt="icon" />
+      </div>
+
+      <div id="alert-container" class="row flex-center">
+        <div class="col-12 col">  
+          <div class="alert alert-danger">Unable to access your location.</div>
+        </div>
+      </div>
+  </body>
+</html>
