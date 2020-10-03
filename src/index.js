@@ -37,7 +37,7 @@ const geolocalization = () => {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
       axios
-        .post(
+        .get(
           `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
         )
         .then((res) => {
@@ -71,7 +71,7 @@ const geolocalization = () => {
 
 const fetchData = () => {
   axios
-    .post(
+    .get(
       `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=${API_KEY}`
     )
     .then((res) => {

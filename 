@@ -1,0 +1,13 @@
+[33mcf538ad[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{0}: commit: update
+[33m7a69a3b[m HEAD@{1}: commit: test
+[33m0d99fcb[m HEAD@{2}: commit: up
+[33m16dca83[m HEAD@{3}: commit: fix env
+[33m5e9e57d[m HEAD@{4}: commit: axios
+[33m77cdd01[m HEAD@{5}: commit: update fetch func
+[33m610c7a3[m HEAD@{6}: commit: const
+[33mc49154c[m HEAD@{7}: pull --tags origin master: Merge made by the 'recursive' strategy.
+[33mc42cddd[m HEAD@{8}: commit: installed dotenv-webpack
+[33me5b7cf5[m HEAD@{9}: commit: upload config
+[33mc447bd5[m HEAD@{10}: commit: config
+[33m314fd64[m HEAD@{11}: Branch: renamed refs/heads/master to refs/heads/master
+[33m314fd64[m HEAD@{13}: commit (initial): first
