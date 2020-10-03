@@ -22,6 +22,7 @@ module.exports = {
       template: "./src/index.html",
     }),
     new Dotenv({
+      systemvars: true,
       silent: true,
     }),
   ],
