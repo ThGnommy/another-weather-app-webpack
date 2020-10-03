@@ -21,7 +21,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
-    new Dotenv(),
+    new Dotenv({
+      silent: true,
+    }),
   ],
   output: {
     filename: "[name].bundle.js",
