@@ -71,8 +71,8 @@ const geolocalization = () => {
   }
 };
 
-const fetchData = () => {
-  fetch(
+const fetchData = async () => {
+  await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=${API_KEY}`,
     {
       method: "GET",
