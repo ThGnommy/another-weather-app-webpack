@@ -5,15 +5,16 @@
   "private": "true",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --env.production",
     "watch": "webpack --watch",
-    "build": "webpack"
+    "build": "webpack --env.production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^4.3.0",
+    "dotenv-webpack": "^3.0.0",
     "html-webpack-plugin": "^4.5.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.2",
