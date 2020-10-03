@@ -13,12 +13,12 @@ const API_KEY = process.env.API_KEY;
 
 const input = document.querySelector("input");
 const button = document.querySelector("button");
-let currentCity = document.getElementById("city");
-let description = document.getElementById("weather-description");
-let temp = document.getElementById("temp");
-let humidity = document.getElementById("humidity");
-let windSpeed = document.getElementById("wind-speed");
-let iconCondition = document.getElementById("icon-condition");
+const currentCity = document.getElementById("city");
+const description = document.getElementById("weather-description");
+const temp = document.getElementById("temp");
+const humidity = document.getElementById("humidity");
+const windSpeed = document.getElementById("wind-speed");
+const iconCondition = document.getElementById("icon-condition");
 
 const updateData = (city, desc, tmp, h, ws, img) => {
   currentCity.innerHTML = city;
