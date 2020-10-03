@@ -63,6 +63,7 @@ const geolocalization = () => {
         })
         .catch((error) => {
           hiddenContainer();
+          hideDangerText();
         });
     }, alertAnimation);
   }
