@@ -62,7 +62,7 @@ const geolocalization = () => {
           );
         })
         .catch((error) => {
-          return error;
+          hiddenContainer();
         });
     }, alertAnimation);
   } else {
