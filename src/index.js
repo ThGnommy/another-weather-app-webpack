@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import {
   showContainer,
   showDangerText,
@@ -34,36 +36,33 @@ const geolocalization = () => {
     navigator.geolocation.getCurrentPosition((pos) => {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
-      fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
-      )
+      axios
+        .get(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+        )
         .then((res) => {
-          if (res.ok) {
-            showContainer();
-          } else {
-            return;
-          }
-          return res.json();
-        })
-        .then((data) => {
+          showContainer();
           updateData(
             capitalize(
-              `${checkIfUndefined(data.name, "Not found")}, ${checkIfUndefined(
-                data.sys.country,
+              `${checkIfUndefined(
+                res.data.name,
                 "Not found"
-              )}`
+              )}, ${checkIfUndefined(res.data.sys.country, "Not found")}`
             ),
             capitalize(
-              checkIfUndefined(data.weather[0].description, "Not found")
+              checkIfUndefined(res.data.weather[0].description, "Not found")
             ),
-            checkIfUndefined(data.main.temp, "Not found"),
-            checkIfUndefined(data.main.humidity, "Not found"),
-            checkIfUndefined(data.wind.speed, "Not found"),
+            checkIfUndefined(res.data.main.temp, "Not found"),
+            checkIfUndefined(res.data.main.humidity, "Not found"),
+            checkIfUndefined(res.data.wind.speed, "Not found"),
             checkIfUndefined(
-              `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+              `https://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`,
               "Not found"
             )
           );
+        })
+        .catch((error) => {
+          return error;
         });
     }, alertAnimation);
   } else {
@@ -71,45 +70,37 @@ const geolocalization = () => {
   }
 };
 
-const fetchData = async () => {
-  await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=${API_KEY}`,
-    {
-      method: "GET",
-    }
-  )
+const fetchData = () => {
+  axios
+    .get(
+      `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=${API_KEY}`
+    )
     .then((res) => {
-      if (input.value === "") {
-        hiddenContainer();
-      } else if (!res.ok) {
-        showDangerText();
-        hiddenContainer();
-      } else if (res.ok) {
-        hideDangerText();
-        showContainer();
-      }
-      return res.json();
-    })
-    .then((data) => {
+      hideDangerText();
+      showContainer();
+
       updateData(
         capitalize(
-          `${checkIfUndefined(data.name, "Not found")}, ${checkIfUndefined(
-            data.sys.country,
+          `${checkIfUndefined(res.data.name, "Not found")}, ${checkIfUndefined(
+            res.data.sys.country,
             "Not found"
           )}`
         ),
-        capitalize(checkIfUndefined(data.weather[0].description, "Not found")),
-        checkIfUndefined(data.main.temp, "Not found"),
-        checkIfUndefined(data.main.humidity, "Not found"),
-        checkIfUndefined(data.wind.speed, "Not found"),
+        capitalize(
+          checkIfUndefined(res.data.weather[0].description, "Not found")
+        ),
+        checkIfUndefined(res.data.main.temp, "Not found"),
+        checkIfUndefined(res.data.main.humidity, "Not found"),
+        checkIfUndefined(res.data.wind.speed, "Not found"),
         checkIfUndefined(
-          `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+          `https://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`,
           "Not found"
         )
       );
     })
     .catch((error) => {
-      console.log(error);
+      showDangerText();
+      hiddenContainer();
     });
 };
 
