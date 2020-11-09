@@ -12,7 +12,7 @@ import {
 import "./style.css";
 
 const API_KEY = process.env.API_KEY;
-
+const formGroup = document.getElementsByClassName("form-group")[0];
 const input = document.querySelector("input");
 const button = document.querySelector("button");
 const currentCity = document.getElementById("city");
@@ -21,6 +21,9 @@ const temp = document.getElementById("temp");
 const humidity = document.getElementById("humidity");
 const windSpeed = document.getElementById("wind-speed");
 const iconCondition = document.getElementById("icon-condition");
+
+// Prevent Refresh on enter
+formGroup.addEventListener("submit", (e) => e.preventDefault());
 
 const updateData = (city, desc, tmp, h, ws, img) => {
   currentCity.innerHTML = city;
